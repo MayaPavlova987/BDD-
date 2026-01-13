@@ -15,10 +15,10 @@ public class DashBoardPage {
     private final String balanceStart = "баланс: ";
     private final String balanceFinish = " р.";
     private final SelenideElement header = $("[data-test-id=dashboard]");
-    private final SelenideElement reloadButton = $("[data-test-id='action-reload']"); // ← исправил опечатку
+    private final SelenideElement reloadButton = $("[data-test-id='action-reload']");
 
     public DashBoardPage() {
-        header.shouldBe(visible); // ← shouldBe вместо should
+        header.shouldBe(visible);
     }
 
     public int getCardBalance(DataHelper.CardInfo cardInfo) {
@@ -31,9 +31,9 @@ public class DashBoardPage {
         return extractBalance(text);
     }
 
-    public TransferPage selectCardToTransfer(DataHelper.CardInfo cardInfo) { // ← исправил параметр (с маленькой c)
+    public TransferPage selectCardToTransfer(DataHelper.CardInfo cardInfo) {
         getCard(cardInfo).$("button").click();
-        return new TransferPage(); // ← добавил возврат TransferPage
+        return new TransferPage();
     }
 
     private SelenideElement getCard(DataHelper.CardInfo cardInfo) {
@@ -53,7 +53,7 @@ public class DashBoardPage {
         var start = text.indexOf(balanceStart);
         var finish = text.indexOf(balanceFinish);
         var value = text.substring(start + balanceStart.length(), finish);
-        value = value.replaceAll("\\s+", ""); // ← добавляем удаление пробелов
+        value = value.replaceAll("\\s+", "");
         return Integer.parseInt(value);
     }
 }
