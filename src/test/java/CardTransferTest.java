@@ -45,8 +45,8 @@ public class CardTransferTest {
         dashBoardPage.reloadDashboardPage();
 
         assertAll(
-                () -> dashBoardPage.CheckCardBalance(firstCard, expectedBalanceFirstCard),
-                () -> dashBoardPage.CheckCardBalance(secondCard, expectedBalanceSecondCard)
+                () -> dashBoardPage.checkCardBalance(firstCard, expectedBalanceFirstCard),
+                () -> dashBoardPage.checkCardBalance(secondCard, expectedBalanceSecondCard)
         );
     }
 
@@ -61,8 +61,8 @@ public class CardTransferTest {
         dashBoardPage.reloadDashboardPage();
 
         assertAll(
-                () -> dashBoardPage.CheckCardBalance(firstCard, expectedBalanceFirstCard),
-                () -> dashBoardPage.CheckCardBalance(secondCard, expectedBalanceSecondCard)
+                () -> dashBoardPage.checkCardBalance(firstCard, expectedBalanceFirstCard),
+                () -> dashBoardPage.checkCardBalance(secondCard, expectedBalanceSecondCard)
         );
     }
 
@@ -77,8 +77,8 @@ public class CardTransferTest {
         dashBoardPage.reloadDashboardPage();
 
         assertAll(
-                () -> dashBoardPage.CheckCardBalance(firstCard, expectedBalanceFirstCard),
-                () -> dashBoardPage.CheckCardBalance(secondCard, expectedBalanceSecondCard)
+                () -> dashBoardPage.checkCardBalance(firstCard, expectedBalanceFirstCard),
+                () -> dashBoardPage.checkCardBalance(secondCard, expectedBalanceSecondCard)
         );
     }
 
@@ -96,8 +96,8 @@ public class CardTransferTest {
         dashBoardPage.reloadDashboardPage();
 
         assertAll(
-                () -> dashBoardPage.CheckCardBalance(firstCard, expectedBalanceFirstCard),
-                () -> dashBoardPage.CheckCardBalance(secondCard, expectedBalanceSecondCard)
+                () -> dashBoardPage.checkCardBalance(firstCard, expectedBalanceFirstCard),
+                () -> dashBoardPage.checkCardBalance(secondCard, expectedBalanceSecondCard)
         );
     }
 }

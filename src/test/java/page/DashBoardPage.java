@@ -45,7 +45,7 @@ public class DashBoardPage {
         header.shouldBe(visible);
     }
 
-    public void CheckCardBalance(DataHelper.CardInfo cardInfo, int expectedBalance) {
+    public void checkCardBalance(DataHelper.CardInfo cardInfo, int expectedBalance) {
         getCard(cardInfo).shouldBe(visible).shouldHave(text(balanceStart + expectedBalance + balanceFinish));
     }
 

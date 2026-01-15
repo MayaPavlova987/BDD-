@@ -4,7 +4,11 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import data.DataHelper;
 
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.getSelectedText;
 
 public class TransferPage {
     private final SelenideElement amountField = $("[data-test-id='amount'] input");
@@ -14,7 +18,7 @@ public class TransferPage {
     private final SelenideElement errorMessage = $("[data-test-id='error-notification']");
 
     public TransferPage() {
-        amountField.shouldBe(Condition.visible);
+        amountField.shouldBe(visible);
     }
 
     // Метод для валидного перевода
@@ -25,31 +29,10 @@ public class TransferPage {
         return new DashBoardPage();
     }
 
-    public TransferPage setAmount(int amount) {
-        amountField.setValue(String.valueOf(amount));
-        return this;
-    }
-
-    public TransferPage setFromCard(DataHelper.CardInfo cardInfo) {
-        fromField.setValue(cardInfo.getNumber());
-        return this;
-    }
-
-    public DashBoardPage makeTransfer() {
-        transferButton.click();
-        return new DashBoardPage();
-    }
-
-    public DashBoardPage cancelTransfer() {
-        cancelButton.click();
-        return new DashBoardPage();
-    }
-
-    public boolean isErrorMessageVisible() {
-        return errorMessage.is(Condition.visible);
-    }
-
-    public String getErrorMessageText() {
-        return errorMessage.getText();
+    public void verifyErrorMessage(String expectedText) {
+        errorMessage
+                .shouldBe(Condition.visible, Duration.ofSeconds(15))
+                .shouldHave(Condition.text(expectedText));
     }
 }
+
